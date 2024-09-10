@@ -348,11 +348,12 @@ When building for iOS, package the module as a static `.xcframework`, you can us
 following commands to do so:
 
 ::
+
     # compile simulator and device modules
     scons arch=universal ios_simulator=yes platform=ios target=<target>
     scons arch=arm64 ios_simulator=no platform=ios target=<target>
 
-    # assembe xcframeworks
+    # assemble xcframeworks
     xcodebuild -create-xcframework -library demo/bin/libgdexample.ios.<target>.a -library demo/bin/libgdexample.ios.<target>.simulator.a -output demo/bin/libgdexample.ios.<target>.xcframework
     xcodebuild -create-xcframework -library godot-cpp/bin/libgodot-cpp.ios.<target>.arm64.a -library godot-cpp/bin/libgodot-cpp.ios.<target>.universal.simulator.a  -output demo/bin/libgodot-cpp.ios.<target>.xcframework
 
@@ -496,6 +497,7 @@ show the methods we end up changing, don't remove the lines we're omitting:
     void GDExample::_bind_methods() {
         ClassDB::bind_method(D_METHOD("get_amplitude"), &GDExample::get_amplitude);
         ClassDB::bind_method(D_METHOD("set_amplitude", "p_amplitude"), &GDExample::set_amplitude);
+
         ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "amplitude"), "set_amplitude", "get_amplitude");
     }
 
@@ -553,7 +555,8 @@ showing the methods that have changed so don't remove anything we're omitting:
         ...
         ClassDB::bind_method(D_METHOD("get_speed"), &GDExample::get_speed);
         ClassDB::bind_method(D_METHOD("set_speed", "p_speed"), &GDExample::set_speed);
-        ADD_PROPERTY("GDExample", PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,20,0.01"), "set_speed", "get_speed");
+
+        ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,20,0.01"), "set_speed", "get_speed");
     }
 
     GDExample::GDExample() {
@@ -647,7 +650,7 @@ as follows:
 
     void GDExample::_bind_methods() {
         ...
-        ADD_PROPERTY("GDExample", PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,20,0.01"), "set_speed", "get_speed");
+        ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,20,0.01"), "set_speed", "get_speed");
 
         ADD_SIGNAL(MethodInfo("position_changed", PropertyInfo(Variant::OBJECT, "node"), PropertyInfo(Variant::VECTOR2, "new_pos")));
     }

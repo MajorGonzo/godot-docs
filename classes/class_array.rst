@@ -17,9 +17,7 @@ A built-in data structure that holds a sequence of elements.
 Description
 -----------
 
-An array data structure that can contain a sequence of elements of any :ref:`Variant<class_Variant>` type. Elements are accessed by a numerical index starting at 0. Negative indices are used to count from the back (-1 is the last element, -2 is the second to last, etc.).
-
-\ **Example:**\ 
+An array data structure that can contain a sequence of elements of any :ref:`Variant<class_Variant>` type. Elements are accessed by a numerical index starting at ``0``. Negative indices are used to count from the back (``-1`` is the last element, ``-2`` is the second to last, etc.).
 
 
 .. tabs::
@@ -522,7 +520,7 @@ Appends another ``array`` at the end of this array.
     var numbers = [1, 2, 3]
     var extra = [4, 5, 6]
     numbers.append_array(extra)
-    print(nums) # Prints [1, 2, 3, 4, 5, 6]
+    print(numbers) # Prints [1, 2, 3, 4, 5, 6]
 
 .. rst-class:: classref-item-separator
 
